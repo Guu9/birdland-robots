@@ -73,15 +73,11 @@
     },
     {
       "start": 17.8754,
-      "view": "kick"
-    },
-    {
-      "start": 18.6443,
       "view": "hat"
     },
     {
-      "start": 21.0081,
-      "view": "kick"
+      "start": 20.0,
+      "view": "hat_pedal"
     },
     {
       "start": 22.1081,
@@ -175,5 +171,6 @@
   "resolution": [
     3840,
     2160
-  ]
+  ],
+  "camera_revision": "Opening close-ups follow user listening notes: hi-hat first, then hi-hat pedal; removed early kick cut unsupported by audible kick. Camera first-frame warmup fixes frame 960 projection glitch."
 }

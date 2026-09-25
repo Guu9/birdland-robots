@@ -10,3 +10,7 @@ Camera cuts, analyzed shot timestamps and strengths are in `data/edit-analysis.j
 Long Rhino viewport exports can retain considerable memory. Use short batches, preserve every completed frame, and restart Rhino between batches if necessary; then rerun initialization. Do not close a session containing other unsaved user work. The exporter writes per-batch validation, but does not claim collision or dynamic certification.
 
 To reanalyze audio, place `opening-75.wav` and `analysis/htdemucs/opening-75/drums.wav` under `assets/audio/`, then run `src/analyze_audio.py` with numpy, scipy, soundfile and matplotlib. The analysis uses positive spectral-energy changes in the separated drum stem and original mix. Treat its instrument labels and inferred choreography as approximate.
+
+The revised opening uses hi-hat at 17.9167–20 seconds, then hi-hat pedal at 20–22.125 seconds. It removes the two early kick close-ups based on listening feedback. Other instrument mappings remain approximate. Capture now primes the output dimensions before setting the first camera to avoid a one-frame projection mismatch; the reported glitch at frame 960 was re-rendered and checked against frames 959 and 961.
+
+`render-batch.json` may include an explicit `frames` array for targeted fixes. `BIRDLAND_OUTPUT` overrides the capture directory. `encode.sh` accepts `BIRDLAND_FRAMES`, `BIRDLAND_AUDIO`, `BIRDLAND_OUTPUT` and `BIRDLAND_OVERLAY`.

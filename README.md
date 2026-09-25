@@ -5,13 +5,19 @@ Rhino 8 + Grasshopper + Robots 2.4.0 study: two stick arms, a kick-pedal arm and
 ## Open the project
 
 1. Install Rhino 8 with bundled legacy GhPython, Robots 2.4.0, and the UniversalRobot library. Put `UniversalRobot.xml` and `UniversalRobot.3dm` in `~/Documents/Robots`; Rhino package-version folders may be cleaned during startup.
-2. Open a blank Rhino document, then `grasshopper/Birdland-Robots.gh` for the recorded Birdland choreography, or `grasshopper/MIDI-Drum-Robots.gh` for the reusable MIDI adapter. The definitions contain their stage geometry and Python source.
+2. Open a blank Rhino document, then `grasshopper/Birdland-Components.gh` for the recorded Birdland choreography, or `grasshopper/MIDI-Drum-Components.gh` for the reusable MIDI adapter. The definitions contain their stage geometry and Python source.
 3. Drag `PLAYBACK / 0 to 1` to scrub. The `.gh` does not play or synthesize audio. The Birdland MP4 uses the original recording.
 4. `assets/Birdland-Robots.3dm` is an optional baked scene with materials and lights. Opening it while GH previews are visible duplicates the geometry.
 
+## Grasshopper component flow
+
+The recommended definitions expose four separate lanes: hit times → rebound → target plane → native Robots Create Target → native Robots Kinematics → preview. Robot model, mounting planes and tool lengths are visible inputs. Each solver exposes joint angles, joint planes and IK errors. Pedal linkages use the same lift values as their arms.
+
+Small legacy GhPython nodes handle event parsing, articulation and geometry; Rhino 8 marks these with an **OLD** badge because the scripting component is superseded. They remain functional and internally embedded. The robot loaders, tools, target builders and kinematics solvers are native Robots components. See [the component map](docs/components.md). Original monolithic definitions are retained as `Birdland-Robots.gh` and `MIDI-Drum-Robots.gh` for the existing renderer and regression comparisons.
+
 ## Import a drum MIDI
 
-In `MIDI-Drum-Robots.gh`, paste an absolute `.mid`/`.midi` path into `MIDI / FILE TO IMPORT`. A successful import copies the original bytes into `MIDI / EMBEDDED BYTES` and clears the external path. **Save the GH file after import.** It then works without the source MIDI file. An original 9-second demo is embedded and also provided in `examples/demo-drums.mid`.
+In `MIDI-Drum-Components.gh`, paste an absolute `.mid`/`.midi` path into `MIDI / FILE TO IMPORT`. A successful import copies the original bytes into `MIDI / EMBEDDED BYTES` and clears the external path. **Save the GH file after import.** It then works without the source MIDI file. An original 9-second demo is embedded and also provided in `examples/demo-drums.mid`.
 
 - Standard MIDI types 0 and 1, tempo maps, running status and SMPTE timing are supported. Type 2 independent sequences and MIDI 2.0 clip files are not supported.
 - Channel 0 selects GM channel 10, or the sole mapped channel. Select 1–16 explicitly when an auto choice is ambiguous; -1 imports all channels.
@@ -28,6 +34,8 @@ See `docs/assignment-audit.md` for exact deliverables and gaps. `docs/Birdland-P
 ## Checks
 
 Run `python3 -m unittest discover -s tests -v`. Parser tests cover tempo-map timing, running status, channel ambiguity, SMPTE, mapping, note-on velocity zero, malformed data and unsupported formats. Native GH validation reports are in `data/`: the embedded MIDI demo was sampled at 217 instants (868 arm poses), and the saved file reloaded with 49 output meshes and no import/solver errors.
+
+The component refactor was checked at 57 playback positions in each definition: 456 arm poses, 49 meshes per sample, zero IK errors and zero vertex displacement from the originals. Both saved definitions reloaded successfully.
 
 No physical robot connection, toolpath execution, collision validation or dynamic certification has occurred.
 

@@ -2,7 +2,7 @@ import System,Rhino,scriptcontext as sc,os,json,time,traceback,math,random
 from Rhino.Geometry import Point3d,Vector3d,Line
 from System.Drawing import Color
 ROOT=os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-OUT=os.path.join(ROOT,'renders','director4k')
+OUT=os.environ.get('BIRDLAND_OUTPUT',os.path.join(ROOT,'renders','director4k'))
 if not os.path.exists(OUT):os.makedirs(OUT)
 PREVIEW=False
 analysis=json.load(open(ROOT+'/data/edit-analysis.json'))
@@ -15,7 +15,7 @@ def camera(vp,sec):
   u=sec/75.0;a=-1.02+3*math.pi*u;r=6400-650*math.sin(math.pi*u)**2;z=2400+1050*math.sin(math.pi*u)**2
   target=Point3d(0,-100,700+150*math.sin(math.pi*u));eye=Point3d(r*math.cos(a),-100+r*math.sin(a),z);lens=38
  else:
-  settings={'hat':((600,-45,930),(1750,-1900,1700),55),'kick':((0,-325,275),(450,-1900,1050),48),'rim':((-350,10,690),(250,1000,1900),52),'snare':((-350,-50,720),(150,1000,1850),50)}
+  settings={'hat':((600,-45,930),(1750,-1900,1700),55),'hat_pedal':((550,-340,110),(200,-1450,650),45),'kick':((0,-325,275),(450,-1900,1050),48),'rim':((-350,10,690),(250,1000,1900),52),'snare':((-350,-50,720),(150,1000,1850),50)}
   target0,eye0,lens=settings[mode];target=Point3d(*target0);base=Point3d(*eye0)
   delta=base-target;delta*=1-.025*min(elapsed,3);eye=target+delta;eye.X+=22*elapsed
  vp.ChangeToPerspectiveProjection(True,lens);vp.SetCameraLocations(target,eye);vp.CameraUp=Vector3d.ZAxis
@@ -77,7 +77,10 @@ try:
  fx=Fireworks();fx.Enabled=True;sc.sticky['spiral_fx']=fx
  started=time.time();errors=[];rhdoc.UndoRecordingEnabled=False
  batch=json.load(open(ROOT+'/data/render-batch.json'))
- frames=[444,451,517,540,1035] if PREVIEW else range(batch['start'],batch['end'])
+ frames=[444,451,517,540,1035] if PREVIEW else batch.get('frames',list(range(batch['start'],batch['end'])))
+ # Prime capture dimensions before setting the first camera lens. Rhino can otherwise
+ # reuse the on-screen viewport projection for one frame after a resize/restart.
+ warmup=cap.CaptureToBitmap(view);warmup.Dispose()
  for n in frames:
   sec=n/24.0;camera(vp,sec);fx.seconds=sec
   d['time'].SetSliderValue(System.Decimal(n/1800.0));d['time'].ExpireSolution(False);doc.NewSolution(False);sc.doc=rhdoc
