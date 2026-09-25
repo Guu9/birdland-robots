@@ -1,0 +1,13 @@
+{
+  "reloaded_without_source": true, 
+  "invalid_import_preserved_cache": true, 
+  "invalid_import_reported": true, 
+  "path_cleared": true, 
+  "fresh_import_notes": 6, 
+  "errors": {}, 
+  "reload_meshes": 49, 
+  "cache_changed": true, 
+  "reload_data_identical": true, 
+  "recovered_meshes": 49, 
+  "phase": "complete"
+}

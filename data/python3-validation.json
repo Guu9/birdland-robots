@@ -1,0 +1,22 @@
+[
+  {
+    "meshes": 49, 
+    "samples": 57, 
+    "errors": {}, 
+    "all_vertex_hashes_identical": true, 
+    "reload_meshes": 49, 
+    "arm_poses": 228, 
+    "reload_errors": {}, 
+    "file": "grasshopper/Birdland-Python3.gh"
+  }, 
+  {
+    "meshes": 49, 
+    "samples": 57, 
+    "errors": {}, 
+    "all_vertex_hashes_identical": true, 
+    "reload_meshes": 49, 
+    "arm_poses": 228, 
+    "reload_errors": {}, 
+    "file": "grasshopper/MIDI-Drum-Python3.gh"
+  }
+]
