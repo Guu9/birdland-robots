@@ -1,0 +1,24 @@
+;FFMETADATA1
+title=Birdland - 4K Director Edit
+artist=Weather Report (audio); robotic visualization study
+comment=Orbit and instrument close-ups. Shots around 00:43; picture and audio fade from 01:05 to 01:10.
+[CHAPTER]
+TIMEBASE=1/1000
+START=0
+END=18716
+title=Opening motif
+[CHAPTER]
+TIMEBASE=1/1000
+START=18716
+END=43000
+title=Hi-hat-led intro
+[CHAPTER]
+TIMEBASE=1/1000
+START=43000
+END=65000
+title=Shots and transition
+[CHAPTER]
+TIMEBASE=1/1000
+START=65000
+END=70000
+title=Main melody / fade out

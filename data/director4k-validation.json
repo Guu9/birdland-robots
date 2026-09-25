@@ -1,0 +1,47 @@
+{
+  "frames": 1680,
+  "fps": 24,
+  "resolution": [
+    3840,
+    2160
+  ],
+  "duration": 70,
+  "armPoses": 6720,
+  "ikErrors": [],
+  "componentErrors": [],
+  "batches": [
+    {
+      "first": 0,
+      "last": 239
+    },
+    {
+      "first": 240,
+      "last": 479
+    },
+    {
+      "first": 480,
+      "last": 719
+    },
+    {
+      "first": 720,
+      "last": 959
+    },
+    {
+      "first": 960,
+      "last": 1199
+    },
+    {
+      "first": 1200,
+      "last": 1439
+    },
+    {
+      "first": 1440,
+      "last": 1679
+    }
+  ],
+  "fireworks": "13 measured onset events from 42.9743 to 55.1271 seconds, snapped to nearest video frame",
+  "fade": [
+    65,
+    70
+  ]
+}

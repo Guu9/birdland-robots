@@ -1,0 +1,179 @@
+{
+  "shots": [
+    {
+      "time": 42.9743,
+      "strength": 3.565,
+      "frame": 1031
+    },
+    {
+      "time": 44.4749,
+      "strength": 1.693,
+      "frame": 1067
+    },
+    {
+      "time": 46.0016,
+      "strength": 1.548,
+      "frame": 1104
+    },
+    {
+      "time": 48.6777,
+      "strength": 0.794,
+      "frame": 1168
+    },
+    {
+      "time": 49.0463,
+      "strength": 1.166,
+      "frame": 1177
+    },
+    {
+      "time": 49.4498,
+      "strength": 0.631,
+      "frame": 1187
+    },
+    {
+      "time": 49.801,
+      "strength": 1.451,
+      "frame": 1195
+    },
+    {
+      "time": 50.9359,
+      "strength": 1.347,
+      "frame": 1222
+    },
+    {
+      "time": 52.4452,
+      "strength": 0.849,
+      "frame": 1259
+    },
+    {
+      "time": 52.8341,
+      "strength": 0.884,
+      "frame": 1268
+    },
+    {
+      "time": 53.6004,
+      "strength": 0.986,
+      "frame": 1286
+    },
+    {
+      "time": 54.1547,
+      "strength": 0.991,
+      "frame": 1300
+    },
+    {
+      "time": 55.1271,
+      "strength": 3.719,
+      "frame": 1323
+    }
+  ],
+  "cuts": [
+    {
+      "start": 0,
+      "view": "orbit"
+    },
+    {
+      "start": 17.8754,
+      "view": "kick"
+    },
+    {
+      "start": 18.6443,
+      "view": "hat"
+    },
+    {
+      "start": 21.0081,
+      "view": "kick"
+    },
+    {
+      "start": 22.1081,
+      "view": "rim"
+    },
+    {
+      "start": 24.25,
+      "view": "orbit"
+    },
+    {
+      "start": 28.15,
+      "view": "rim"
+    },
+    {
+      "start": 30.5,
+      "view": "orbit"
+    },
+    {
+      "start": 31.243,
+      "view": "kick"
+    },
+    {
+      "start": 32.9815,
+      "view": "orbit"
+    },
+    {
+      "start": 34.2,
+      "view": "hat"
+    },
+    {
+      "start": 37.15,
+      "view": "orbit"
+    },
+    {
+      "start": 40.75,
+      "view": "rim"
+    },
+    {
+      "start": 42.65,
+      "view": "orbit"
+    },
+    {
+      "start": 45.65,
+      "view": "snare"
+    },
+    {
+      "start": 47.05,
+      "view": "orbit"
+    },
+    {
+      "start": 49.4,
+      "view": "kick"
+    },
+    {
+      "start": 50.5,
+      "view": "orbit"
+    },
+    {
+      "start": 55.5,
+      "view": "hat"
+    },
+    {
+      "start": 58.25,
+      "view": "orbit"
+    },
+    {
+      "start": 60.8,
+      "view": "snare"
+    },
+    {
+      "start": 63.35,
+      "view": "orbit"
+    },
+    {
+      "start": 70,
+      "view": "end"
+    }
+  ],
+  "first_entries": {
+    "hat": 18.7443,
+    "kick": 18.5254,
+    "second_kick": 21.4581,
+    "rim": 18.7443
+  },
+  "method": "Weighted positive spectral-energy rise: separated drum low band (40%), drum mid band (40%), original mix (20%). Strong local peaks within 42.75\u201355.5 s; backtracked to onset. Bursts start on nearest 24 fps frame. Instrument close-ups anticipate existing chart-guided drum events.",
+  "fade": [
+    65,
+    70
+  ],
+  "fps": 24,
+  "resolution": [
+    3840,
+    2160
+  ]
+}

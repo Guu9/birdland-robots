@@ -1,0 +1,18 @@
+{
+  "validatedFrameRange": [
+    0, 
+    1799
+  ], 
+  "armPoses": 7200, 
+  "source": "https://www.youtube.com/watch?v=SvhmaNlLgRM", 
+  "fps": 24, 
+  "duration": 75, 
+  "ikErrors": [], 
+  "componentErrors": [], 
+  "limitations": [
+    "Chart-guided robotic adaptation aligned to audio; not an exact transcription", 
+    "Cross-stick, hi-hat pedal, fill and crash articulations added", 
+    "No collision, velocity or acceleration certification"
+  ], 
+  "frames": 1800
+}

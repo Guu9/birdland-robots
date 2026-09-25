@@ -1,0 +1,14 @@
+.DS_Store
+__pycache__/
+*.pyc
+*.rhl
+*.3dmbak
+*.ghbak
+renders/*
+!renders/.gitkeep
+assets/audio/
+*.wav
+*.webm
+*.mp4
+*.mov
+*.log
