@@ -1,7 +1,7 @@
 {
-  "coreErrors": [], 
-  "meshes": 49, 
-  "importErrors": [], 
+  "coreErrors": [],
+  "meshes": 49,
+  "importErrors": [],
   "report": [
     "MIDI: 54 hits / 9.000 seconds\nChannels: [10]; tempo changes: 2\n\nVelocities scale stroke heights; MIDI itself produces no audio.\nUsing embedded MIDI bytes: no external MIDI file needed."
   ]
