@@ -6,21 +6,11 @@ This demo uses four simulated UR10e robot arms to play a drum kit: two hold stic
 
 AI acted as a programming and application-operation assistant. It translated the creative brief into scripts, generated the parametric scene, assembled Grasshopper definitions, analyzed audio, implemented camera and effects logic, and checked outputs. Human direction selected the music and visual style and corrected musical and visual mistakes throughout development.
 
-## Which MCP communicated with Rhino?
+## Controlling Rhino
 
-The tool was **`mcp__cua_repl.js`**, supplied by the **unified-computer-use** plugin. There was no dedicated Rhino MCP server or custom Rhino network endpoint.
+The assistant used **`mcp__cua_repl.js`** from the **unified-computer-use** plugin to inspect Rhino's UI, run commands and review the scene. It wrote Python scripts to disk and launched them through Rhino's `_-RunPythonScript` command.
 
-The tool provides a JavaScript REPL for controlling native applications. The assistant selected Rhino, inspected its accessibility tree and screenshots, and operated its command field and dialogs. A representative entry point was:
-
-```javascript
-const rhino = await cua.getApp('com.mcneel.rhinoceros.8');
-await rhino.getAXState();
-await rhino.getScreenshot();
-```
-
-The assistant wrote Python files to disk using shell/file tools, then used the Rhino UI to invoke `_-RunPythonScript` and supply a script path. Those scripts ran inside Rhino and accessed its object model directly. This distinction matters: MCP supplied the desktop-control entry point; **RhinoCommon, Grasshopper's .NET API and the Robots library performed the modeling and kinematics**.
-
-`functions.exec` orchestrated tool calls, while `exec_command` handled source files, offline analysis, encoding and Git. Neither was a Rhino-specific MCP. Likewise, **Robots 2.4.0 is a Grasshopper robotics plugin, not an MCP server**.
+Inside Rhino, those scripts used **RhinoCommon, Grasshopper's .NET API and the Robots library** to create geometry, assemble component graphs and solve robot poses. Shell tools handled offline audio analysis, video encoding and Git.
 
 ## Architecture
 
