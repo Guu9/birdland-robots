@@ -2,6 +2,8 @@
 
 Rhino 8 + Grasshopper + Robots 2.4.0 study: two stick arms, a kick-pedal arm and a hi-hat-pedal arm. Includes a reusable, internally cached Standard MIDI drum importer.
 
+Read [how AI helped build the demo](docs/ai-assisted-development.md) for the MCP/Rhino control architecture, music analysis, Grasshopper implementation and validation.
+
 ## Open the project
 
 1. Install Rhino 8 with its Python 3 scripting support, Robots 2.4.0, and the UniversalRobot library. Put `UniversalRobot.xml` and `UniversalRobot.3dm` in `~/Documents/Robots`; Rhino package-version folders may be cleaned during startup.
